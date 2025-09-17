@@ -1,7 +1,12 @@
 [project]
 name = "tracker"
 version = "0.1.0"
-description = "Add your description here"
+description = "Server Component of tracker system to track user using Android App."
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "fastapi[standard]>=0.116.2",
+    "pydantic>=2.11.9",
+    "pydantic-settings>=2.10.1",
+    "ruff>=0.13.0",
+]
