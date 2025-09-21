@@ -4,6 +4,7 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     DATABASE_URL: str = "sqlite:///./tracker.db"
+    DATABASE_LOG: bool = True
     CORS_ORIGINS: List[str] = ["*"]
     JWT_SECRET_KEY: str
     JWT_ALGORITHM: str = "HS256"

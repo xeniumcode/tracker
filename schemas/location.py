@@ -7,7 +7,3 @@ class LocationData(BaseModel):
     latitude: float
     longitude: float
     timestamp: Optional[int] = int(time() * 1000)
-
-
-class TokenRequest(BaseModel):
-    userId: str

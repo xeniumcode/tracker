@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from core.initializer import AppInitializer
-from api.android import router
+from api.router import router
 
 app = FastAPI(
     title="Tracker Service",
     summary="Tracker Service",
-    description="Service to save  user info and provide authentication for admin frontend.",
+    description="Service to save user info and provide authentication for admin frontend.",
     docs_url="/",
     contact={
         "name": "Aman Poonia",
