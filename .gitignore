@@ -9,3 +9,5 @@ logs
 uv.lock
 # Virtual environments
 .venv
+.env
+tracker.db
