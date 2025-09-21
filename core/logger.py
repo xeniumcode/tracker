@@ -5,7 +5,7 @@ os.makedirs("logs", exist_ok=True)
 
 LOGGING_CONFIG = {
     "version": 1,
-    "disable_existing_loggers": False,  # elseit will create issue for fastapi
+    "disable_existing_loggers": False,  # else it will create issue for fastapi
     "formatters": {
         "default": {
             "format": "%(asctime)s - %(levelname)s - %(name)s - %(message)s",
@@ -27,8 +27,8 @@ LOGGING_CONFIG = {
         },
     },
     "root": {
-        "level": "INFO",
-        "handlers": ["console", "file"],
+        "level": "ERROR",
+        "handlers": ["file"],
     },
 }
 

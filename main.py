@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from core.initializer import AppInitializer
+from api.android import router
 
 app = FastAPI(
     title="Tracker Service",
@@ -14,3 +15,4 @@ app = FastAPI(
 )
 
 AppInitializer(app).setup()
+app.include_router(router, prefix="/api")
