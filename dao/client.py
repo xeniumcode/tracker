@@ -1,6 +1,7 @@
 from typing import List, Optional
 from sqlalchemy.orm import Session
-from models.client import Device, Location  
+from models.client import Device, Location
+
 
 class DeviceDAO:
     def __init__(self, session: Session, model=Device):
@@ -14,7 +15,11 @@ class DeviceDAO:
         return device
 
     def get_by_deviceId(self, deviceId: str) -> Optional[Device]:
-        return self.session.query(self.model).filter(self.model.deviceId == deviceId).first()
+        return (
+            self.session.query(self.model)
+            .filter(self.model.deviceId == deviceId)
+            .first()
+        )
 
 
 class LocationDAO:
@@ -22,12 +27,19 @@ class LocationDAO:
         self.session = session
         self.model = model
 
-    def create(self, deviceId: int, latitude: float, longitude: float, timestamp: Optional[int] = None) -> Location:
+    def create(
+        self,
+        deviceId: int,
+        latitude: float,
+        longitude: float,
+        timestamp: Optional[int] = None,
+    ) -> Location:
         location = self.model(
             deviceId=deviceId,
             latitude=latitude,
             longitude=longitude,
-            timestamp=timestamp)
+            timestamp=timestamp,
+        )
         self.session.add(location)
         self.session.commit()
         return location
@@ -37,7 +49,8 @@ class LocationDAO:
             self.session.query(self.model)
             .filter(self.model.deviceId == deviceId)
             .order_by(self.model.timestamp.desc())
-            .first())
+            .first()
+        )
 
     def list_by_device(self, deviceId: int, limit: int = 100) -> List[Location]:
         return (

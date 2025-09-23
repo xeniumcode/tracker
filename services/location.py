@@ -12,7 +12,8 @@ def save_location(db: Session, deviceId: str, location: LocationData):
         timestamp=location.timestamp,
     )
 
-def check_device(db:Session,deviceId:str):
+
+def check_device(db: Session, deviceId: str):
     device_dao = DeviceDAO(session=db)
     device = device_dao.get_by_deviceId(deviceId)
     if not device:

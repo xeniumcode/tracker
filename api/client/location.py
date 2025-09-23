@@ -19,7 +19,7 @@ security = HTTPBearer()
 async def location(
     location: LocationData,
     credentials: Annotated[HTTPAuthorizationCredentials, Depends(security)],
-    db:SessionDep,
+    db: SessionDep,
 ):
     token = credentials.credentials
     if not token:
@@ -31,5 +31,5 @@ async def location(
             raise InvalidTokenPayloadException()
     except Exception:
         raise InvalidTokenException()
-    save_location(db, location=location,deviceId=deviceId)
+    save_location(db, location=location, deviceId=deviceId)
     return {"detail": "Success"}

@@ -10,6 +10,6 @@ router = APIRouter()
 @router.post("/get-token")
 async def get_token(request: TokenRequest, db: SessionDep):
     deviceId = request.deviceId
-    check_device(db,deviceId=deviceId)
+    check_device(db, deviceId=deviceId)
     token = create_access_token(deviceId)
     return {"token": token}

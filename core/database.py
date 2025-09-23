@@ -6,4 +6,3 @@ from models.client import Base
 engine = create_engine(settings.DATABASE_URL, echo=settings.DATABASE_LOG)
 Base.metadata.create_all(bind=engine)
 SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
-
